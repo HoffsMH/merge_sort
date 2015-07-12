@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require_relative 'split'
 require 'pry'
 
@@ -105,21 +107,25 @@ end #module Merge
 
 
 if __FILE__ == $0
-  puts "Input array size:"
+  print "Input array size: "
   arry_size = gets.chomp
   arry_size = arry_size.to_i
 
-  arr = (1..arry_size*10).to_a.sample(arry_size)
+  randomized_arr = (1..arry_size*10).to_a.sample(arry_size)
   puts ""
   puts "Randomized Array as follows(Enter):"
   foo = gets.chomp
-  p arr
-  puts ""
-  puts ""
-  puts ""
-  puts "Enter to sort"
+  p randomized_arr
+  puts "\n\n"
+  puts "Enter to sort:"
   foo = gets.chomp
-  puts ""
-  puts ""
-  p Merge.sort_this(arr)
+  puts "\n"
+  p Merge.sort_this(randomized_arr)
+  puts "\n\n\n"
+  puts "Running test:"
+  puts "(randomized_arr.sort == Merge.sort_this(randomized_arr))\n"
+  puts "Enter to run "
+  foo =  gets.chomp
+  print "=> "
+  p (randomized_arr.sort == Merge.sort_this(randomized_arr))
 end
