@@ -18,7 +18,7 @@ module Merge
       return temp_arr
 
     else
-      #pop 2 elements off the array
+      #shift 2 elements off the temp_arr
       # merge them into one merged_arr
       # append the merged_arr new_array
       #trim the new_array
