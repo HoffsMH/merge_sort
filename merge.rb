@@ -12,7 +12,7 @@ module Merge
     temp_arr = orig_arr
     new_arr = []
 
-    if !(temp_arr) || !(temp_arr.is_a? Array) #if our passed array isn't an array
+    if !temp_arr.is_a?(Array) #if our passed array isn't an array
       return false
     elsif (temp_arr == []) #if our passed array is a blank array
       return temp_arr
@@ -24,6 +24,7 @@ module Merge
       #trim the new_array
       #return the new_array
 
+      # while tmp_arry != []
       until temp_arr == []
 
         temp1 = temp_arr.shift
@@ -52,7 +53,7 @@ module Merge
 
   def self.merg(temp1, temp2)
     merged_arr = []
-    if (temp1 && temp2)  && (temp1.is_a? Array) && (temp2.is_a? Array)
+    if temp1.is_a?(Array) &&  temp2.is_a?(Array) # [temp1, temp2].all?{|array| array.is_a?(Array) }   && #.any? ||
       until temp1 == [] && temp2 ==[]
         case
         when temp1 == []
@@ -70,7 +71,7 @@ module Merge
         end
 
       end #until temp1 == [] && temp2 ==[]
-    elsif (temp1) && (temp1.is_a? Array)
+    elsif temp1.is_a?(Array)
       merged_arr = temp1
     else
       merged_arr == false
@@ -87,6 +88,7 @@ module Merge
 
   end #def self.all(arr)
 
+  # self.is_flat?(array)
   def self.unified?(arr)
     unified = true
     arr.each do |element|
@@ -98,6 +100,7 @@ module Merge
   end #def self.unified?(arr)
 
   def self.sort_this(arr)
+    # Um, where's the sorting?
     arr = Split.arry(arr)
     arr = Merge.all(arr)
     return arr
@@ -129,3 +132,8 @@ if __FILE__ == $0
   print "=> "
   p (randomized_arr.sort == Merge.sort_this(randomized_arr))
 end
+
+__END__
+
+values = (1..10000).to_a.sample(5000)
+sorted_values = MergeSort.sort(values)
